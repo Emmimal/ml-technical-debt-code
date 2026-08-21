@@ -104,8 +104,31 @@ ml-technical-debt-code/
 ├── run_all.py                               # runs all six in order
 ├── requirements.txt
 ├── sample_repo_before/                      # the pipeline as audited (unrefactored)
+│   ├── data/
+│   │   ├── features.csv
+│   │   └── raw_events.csv
+│   ├── models/                              # empty, train.py writes here
+│   ├── feature_gen.py
+│   ├── run_pipeline_legacy.py
+│   ├── score_batch.py
+│   ├── serve_api.py
+│   └── train.py
 ├── sample_repo_after/                       # after centralizing config + declared interface
+│   ├── data/
+│   │   ├── features.csv
+│   │   └── raw_events.csv
+│   ├── models/                              # empty, train.py writes here
+│   ├── config.py
+│   ├── feature_store.py
+│   ├── score_batch.py
+│   ├── serve_api.py
+│   └── train.py
 └── sample_repo_after_broken/                # after_after, with the rolling-window slip
+    ├── data/
+    │   ├── features.csv
+    │   └── raw_events.csv
+    ├── config.py
+    └── feature_store.py
 ```
 
 `sample_repo_before/`, `sample_repo_after/`, and `sample_repo_after_broken/` are small, self-contained fraud-scoring pipelines (feature generation, training, batch scoring, a Flask serving stub, and a legacy orchestration script). They exist purely as fixtures for the auditor and the characterization tests, not as a real pipeline meant to be deployed.

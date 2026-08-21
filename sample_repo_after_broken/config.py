@@ -1,0 +1,14 @@
+RAW_EVENTS_PATH = "data/raw_events.csv"
+FEATURE_COLUMNS = ["amount_capped", "is_weekend", "rolling_7d", "z_score"]
+LABEL_COLUMN = "label"
+AMOUNT_CAP = 5000
+ROLLING_WINDOW_DAYS = 7
+Z_SCORE_EPSILON = 1e-6
+TRAIN_TEST_SPLIT_SEED = 1234
+TEST_SIZE = 0.2
+LOGREG_C = 0.37
+LOGREG_MAX_ITER = 500
+CLASS_WEIGHT = {0: 1, 1: 4.2}
+SCORE_THRESHOLD = 0.63
+MODEL_PATH = "models/model_v4.pkl"
+SCALER_PATH = "models/scaler_v4.pkl"
